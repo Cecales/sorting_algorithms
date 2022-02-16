@@ -19,9 +19,8 @@ void quick_sort(int *array, size_t size)
  * @arr: array of th subroutine
  * @low: start index of partition
  * @hi: final index of partition
- * s: size of the array (arr)
+ * @s: size of the array (arr)
  */
-
 
 void quick_sort_recursive(int *arr, int low, int hi, size_t s)
 {
@@ -35,3 +34,35 @@ void quick_sort_recursive(int *arr, int low, int hi, size_t s)
 }
 
 /**
+ * partition - operates the partition made to the subroutine to sort
+ * @arr: array of the suroutine
+ * @low: start index of partition
+ * @hi: final index of partition
+ * @s: size of the array (arr)
+ * Return: value sorted
+ */
+
+int partition(int *arr, int low, int hi, size_t s)
+{
+	int pivot = arr[hi], tmp;
+	int i = low, j;
+
+	for (j = low; j < hi; j++)
+	{
+		if (arr[j] <= pivot)
+		{
+			tmp = arr[i];
+			arr[i] = arr[j];
+			arr[j] = tmp;
+			i++;
+			if (i - 1 != j)
+				print_array(arr, s);
+		}
+	}
+	tmp = arr[i];
+	arr[i] = arr[hi];
+	arr[hi] = tmp;
+	if (i != hi)
+		print_array(arr, s);
+	return (i);
+}

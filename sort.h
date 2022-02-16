@@ -27,6 +27,9 @@ int len_list(listint_t *h);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
 void quick_sort(int *array, size_t size);
+void quick_sort_recursive(int *arr, int low, int hi, size_t s);
+int partition(int *arr, int low, int hi, size_t s);
+
 void cocktail_sort_list(listint_t **list);
 
 #endif
